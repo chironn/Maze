@@ -1,0 +1,9 @@
+# Docker 相关文件
+.env
+.env.local
+
+# 容器数据
+volumes/
+
+# Docker 日志
+*.log

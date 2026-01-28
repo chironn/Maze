@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 太极图标 - 黑白禅意风格 -->
+  <circle cx="32" cy="32" r="30" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2"/>
+  
+  <!-- 阴阳鱼 -->
+  <path d="M32 2 A30 30 0 0 1 32 62 A15 15 0 0 1 32 32 A15 15 0 0 0 32 2" fill="#1A1A1A"/>
+  <path d="M32 2 A30 30 0 0 0 32 62 A15 15 0 0 0 32 32 A15 15 0 0 1 32 2" fill="#FFFFFF"/>
+  
+  <!-- 阴阳眼 -->
+  <circle cx="32" cy="17" r="4" fill="#FFFFFF"/>
+  <circle cx="32" cy="47" r="4" fill="#1A1A1A"/>
+</svg>

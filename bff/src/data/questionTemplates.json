@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "career",
+      "label": "事业",
+      "templates": [
+        { "id": "career-001", "text": "这次跳槽是否合适？" },
+        { "id": "career-002", "text": "我应该接受这个新的工作机会吗？" },
+        { "id": "career-003", "text": "创业项目的前景如何？" },
+        { "id": "career-004", "text": "如何突破目前的职业瓶颈？" },
+        { "id": "career-005", "text": "当前的工作是否值得继续？" },
+        { "id": "career-006", "text": "申请的职位能否成功？" }
+      ]
+    },
+    {
+      "id": "love",
+      "label": "感情",
+      "templates": [
+        { "id": "love-001", "text": "我和TA的感情能走多远？" },
+        { "id": "love-002", "text": "这段关系值得继续吗？" },
+        { "id": "love-003", "text": "如何改善我们的关系？" },
+        { "id": "love-004", "text": "这段感情会有结果吗？" },
+        { "id": "love-005", "text": "TA是否适合我？" },
+        { "id": "love-006", "text": "我们之间的误会能否化解？" }
+      ]
+    },
+    {
+      "id": "health",
+      "label": "健康",
+      "templates": [
+        { "id": "health-001", "text": "最近的身体状况会好转吗？" },
+        { "id": "health-002", "text": "这个治疗方案是否适合我？" },
+        { "id": "health-003", "text": "如何改善当前的健康状况？" },
+        { "id": "health-004", "text": "需要特别注意哪方面的健康问题？" }
+      ]
+    },
+    {
+      "id": "wealth",
+      "label": "财运",
+      "templates": [
+        { "id": "wealth-001", "text": "这次投资是否明智？" },
+        { "id": "wealth-002", "text": "近期财运如何？" },
+        { "id": "wealth-003", "text": "这个理财计划可行吗？" },
+        { "id": "wealth-004", "text": "何时能改善经济状况？" },
+        { "id": "wealth-005", "text": "当前的财务决策是否正确？" }
+      ]
+    },
+    {
+      "id": "study",
+      "label": "学业",
+      "templates": [
+        { "id": "study-001", "text": "这次考试能否顺利通过？" },
+        { "id": "study-002", "text": "选择这个专业方向对吗？" },
+        { "id": "study-003", "text": "如何提升学业表现？" },
+        { "id": "study-004", "text": "申请的学校能否录取？" }
+      ]
+    },
+    {
+      "id": "other",
+      "label": "其他",
+      "templates": [
+        { "id": "other-001", "text": "这个决定是否正确？" },
+        { "id": "other-002", "text": "未来一个月的运势如何？" },
+        { "id": "other-003", "text": "如何化解目前的困境？" },
+        { "id": "other-004", "text": "当前的方向是否正确？" }
+      ]
+    }
+  ]
+}

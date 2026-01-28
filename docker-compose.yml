@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # 后端 BFF 服务
+  bff:
+    build:
+      context: ./bff
+      dockerfile: Dockerfile
+    container_name: divination-bff
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - LOG_LEVEL=info
+      - GEMINI_BASE_URL=${GEMINI_BASE_URL}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-grok-3-fast}
+      - REQUEST_TIMEOUT_MS=${REQUEST_TIMEOUT_MS:-30000}
+    networks:
+      - divination-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # 前端 Web 服务
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: divination-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - bff
+    networks:
+      - divination-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  divination-network:
+    driver: bridge

@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FDF6E3;
+  --color-primary: #C89B3C;
+  --color-accent: #AF842B;
+  --color-text: #4A2E0A;
+  --color-zen-bg: #FFFFFF;
+  --color-zen-text: #1A1A1A;
+
+  --radius-apple-sm: 16px;
+  --radius-apple: 24px;
+  --radius-apple-lg: 32px;
+
+  --blur-apple: 20px;
+
+  --spacing-app-margin: 24px;
+}
+
+@layer base {
+  :root {
+    font-family: 'PingFang SC', 'SF Pro', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+}
