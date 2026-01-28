@@ -33,3 +33,7 @@ volumes/
 # 后端环境变量
 bff/.env
 bff/.env.local
+
+# 文档文件（只保留 README.md）
+*.md
+!README.md
