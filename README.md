@@ -46,8 +46,8 @@
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/chironn/mijin.git
-cd mijin
+git clone https://github.com/chironn/Maze.git
+cd Maze
 
 # 2. 配置环境变量
 cp .env.example .env
@@ -129,7 +129,7 @@ LOG_LEVEL=info
 ## 📂 项目结构
 
 ```
-mijin/
+Maze/
 ├── src/                      # 前端源码
 │   ├── components/           # React 组件
 │   │   ├── divination/       # 卜卦核心组件
@@ -305,8 +305,8 @@ git commit -m "docs: 更新文档内容"
 
 ## 📞 联系方式
 
-- **GitHub**：[chironn/mijin](https://github.com/chironn/mijin)
-- **问题反馈**：[Issues](https://github.com/chironn/mijin/issues)
+- **GitHub**：[chironn/Maze](https://github.com/chironn/Maze)
+- **问题反馈**：[Issues](https://github.com/chironn/Maze/issues)
 
 ---
 
