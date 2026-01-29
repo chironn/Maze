@@ -2,6 +2,9 @@
 
 # 同时启动前端和后端开发服务器
 
+# 获取脚本所在目录
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 echo "🚀 启动开发环境..."
 
 # 清理旧进程
@@ -12,16 +15,15 @@ sleep 1
 
 # 启动 BFF 后端服务
 echo "🔧 启动 BFF 服务 (端口 3001)..."
-cd bff && npx tsx src/server.ts &
+cd "$SCRIPT_DIR/bff" && npx tsx src/server.ts &
 BFF_PID=$!
-cd ..
 
 # 等待 BFF 启动
 sleep 2
 
 # 启动前端 Vite 服务
 echo "🎨 启动前端服务 (端口 5174)..."
-npm run dev &
+cd "$SCRIPT_DIR" && npm run dev &
 VITE_PID=$!
 
 echo ""

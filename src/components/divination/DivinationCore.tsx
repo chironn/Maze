@@ -167,7 +167,7 @@ export function DivinationCore() {
 }
 
 
-// 龟甲组件 - 可点击，有悬停光晕
+// 龟甲组件 - 可点击，有悬停光晕和缓慢旋转
 function TurtleShell({
   state,
   isHovering,
@@ -183,6 +183,47 @@ function TurtleShell({
 }) {
   const isClickable = state === 'idle';
 
+  // 根据状态决定动画
+  const getAnimateProps = () => {
+    if (state === 'divining') {
+      return { rotate: [0, 360], scale: [1, 1.1, 1] };
+    }
+    if (state === 'revealing') {
+      return { rotate: 0, scale: 0.8, opacity: 0.5 };
+    }
+    if (state === 'done') {
+      return { rotate: 0, scale: 0.6, opacity: 0 };
+    }
+    // idle 状态：悬停时缓慢自转，离开时回到 0
+    if (isHovering) {
+      return { rotate: 360, scale: 1, opacity: 1 };
+    }
+    return { rotate: 0, scale: 1, opacity: 1 };
+  };
+
+  const getTransitionProps = () => {
+    if (state === 'divining') {
+      return {
+        rotate: { duration: 3, repeat: Infinity, ease: 'linear' },
+        scale: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
+      };
+    }
+    // 悬停时缓慢自转
+    if (isHovering && state === 'idle') {
+      return { 
+        rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
+        scale: { duration: 0.5 },
+        opacity: { duration: 0.5 }
+      };
+    }
+    // 离开时平滑回正
+    return { 
+      rotate: { duration: 0.5, ease: 'easeOut' },
+      scale: { duration: 0.5 },
+      opacity: { duration: 0.5 }
+    };
+  };
+
   return (
     <motion.button
       type="button"
@@ -192,26 +233,8 @@ function TurtleShell({
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
       onClick={onClick}
-      animate={
-        state === 'divining'
-          ? {
-              rotate: [0, 360],
-              scale: [1, 1.1, 1],
-            }
-          : state === 'revealing'
-          ? { scale: 0.8, opacity: 0.5 }
-          : state === 'done'
-          ? { scale: 0.6, opacity: 0 }
-          : { scale: 1, opacity: 1 }
-      }
-      transition={
-        state === 'divining'
-          ? {
-              rotate: { duration: 3, repeat: Infinity, ease: 'linear' },
-              scale: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
-            }
-          : { duration: 0.5 }
-      }
+      animate={getAnimateProps()}
+      transition={getTransitionProps()}
     >
       {/* 悬停光晕 */}
       <motion.div 
