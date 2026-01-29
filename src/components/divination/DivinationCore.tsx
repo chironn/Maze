@@ -204,21 +204,21 @@ function TurtleShell({
   const getTransitionProps = () => {
     if (state === 'divining') {
       return {
-        rotate: { duration: 3, repeat: Infinity, ease: 'linear' },
-        scale: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
+        rotate: { duration: 3, repeat: Infinity, ease: 'linear' as const },
+        scale: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' as const }
       };
     }
     // 悬停时缓慢自转
     if (isHovering && state === 'idle') {
       return { 
-        rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
+        rotate: { duration: 8, repeat: Infinity, ease: 'linear' as const },
         scale: { duration: 0.5 },
         opacity: { duration: 0.5 }
       };
     }
     // 离开时平滑回正
     return { 
-      rotate: { duration: 0.5, ease: 'easeOut' },
+      rotate: { duration: 0.5, ease: 'easeOut' as const },
       scale: { duration: 0.5 },
       opacity: { duration: 0.5 }
     };
