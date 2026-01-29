@@ -35,7 +35,7 @@ services:
     container_name: divination-web
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "8029:80"
     depends_on:
       - bff
     networks:
