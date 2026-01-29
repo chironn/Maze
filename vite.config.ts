@@ -12,11 +12,11 @@ export default defineConfig({
         target: 'http://localhost:3001',
         changeOrigin: true,
         ws: false,
-        configure: (proxy, options) => {
-          proxy.on('error', (err, req, res) => {
+        configure: (proxy) => {
+          proxy.on('error', (err) => {
             console.log('proxy error', err);
           });
-          proxy.on('proxyReq', (proxyReq, req, res) => {
+          proxy.on('proxyReq', (proxyReq) => {
             proxyReq.setTimeout(180000);
             proxyReq.setNoDelay(true);
             proxyReq.setSocketKeepAlive(true, 60000);
@@ -29,7 +29,7 @@ export default defineConfig({
               socket.setKeepAlive(true, 60000);
             });
           });
-          proxy.on('proxyRes', (proxyRes, req, res) => {
+          proxy.on('proxyRes', (proxyRes) => {
             proxyRes.setTimeout(180000);
             if (proxyRes.socket) {
               proxyRes.socket.setTimeout(180000);

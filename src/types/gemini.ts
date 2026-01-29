@@ -1,5 +1,3 @@
-import type { CastResult } from './divination';
-
 /**
  * AI 返回的卦象解析结构
  */

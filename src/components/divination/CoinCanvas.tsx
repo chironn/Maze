@@ -17,7 +17,7 @@ interface CoinCanvasProps {
 
 export function CoinCanvas({ isActive }: CoinCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const coinsRef = useRef<Coin[]>([]);
   const coinImageRef = useRef<HTMLImageElement | null>(null);
   const isActiveRef = useRef(isActive);
