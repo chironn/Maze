@@ -23,7 +23,7 @@ WORKDIR /app
 # 复制 package 文件和构建产物
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/src/data ./src/data
+COPY --from=builder /app/src/data ./dist/data
 
 # 仅安装生产依赖
 RUN npm ci --omit=dev
